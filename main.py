@@ -14,13 +14,17 @@ bot = telebot.TeleBot(TOKEN)
 
 
 def get_conn():
-    return psycopg2.connect(
-        dbname="alamacros",
-        user="postgres",
-        password="psw",
-        host="127.0.0.1",
-        port="5432"
-    )
+    DATABASE_URL = os.getenv("SCALINGO_POSTGRESQL_URL")
+    return psycopg2.connect(DATABASE_URL)
+
+# def get_conn():
+#     return psycopg2.connect(
+#         dbname="alamacros",
+#         user="postgres",
+#         password="psw",
+#         host="127.0.0.1",
+#         port="5432"
+#     )
 
 
 

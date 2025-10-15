@@ -10,11 +10,10 @@ load_dotenv()
 
 TOKEN = os.getenv("TOKEN")
 bot = telebot.TeleBot(TOKEN)
-DATABASE_URL = os.getenv("SCALINGO_POSTGRESQL_URL")
-
 
 
 def get_conn():
+    DATABASE_URL = os.getenv("DATABASE_URL")  
     return psycopg2.connect(DATABASE_URL)
 
 # def get_conn():
